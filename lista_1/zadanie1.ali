@@ -1,0 +1,77 @@
+V "GNAT Lib v15"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
+
+U zadanie1%b		zadanie1.adb		9fc2ce0e NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+
+D ada.ads		20250808065140 76789da1 ada%s
+D a-except.ads		20250808065140 e7970cd9 ada.exceptions%s
+D a-inteio.ads		20250808065140 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20250808065140 40018c65 ada.io_exceptions%s
+D a-stream.ads		20250808065140 17477cbd ada.streams%s
+D a-string.ads		20250808065140 90ac6797 ada.strings%s
+D a-sttebu.ads		20250808065140 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20250808065140 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20250808065140 fbca0ad5 ada.tags%s
+D a-textio.ads		20250808065140 34ef47de ada.text_io%s
+D a-tiinio.ads		20250808065140 76699c8f ada.text_io.integer_io%s
+D a-unccon.ads		20250808065140 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20250808065140 9111f9c1 interfaces%s
+D i-cstrea.ads		20250808065140 ffd01b9d interfaces.c_streams%s
+D system.ads		20250808065140 a869df9e system%s
+D s-conca2.ads		20250808065140 b5fb73f7 system.concat_2%s
+D s-crtl.ads		20250808065140 beb39b9e system.crtl%s
+D s-exctab.ads		20250808065140 91bef6ef system.exception_table%s
+D s-ficobl.ads		20250808065140 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20250808065140 5e131ce0 system.image_i%s
+D s-imgint.ads		20250808065140 67e4edfb system.img_int%s
+D s-parame.ads		20250808065140 3597fc11 system.parameters%s
+D s-putima.ads		20250808065140 17291fe4 system.put_images%s
+D s-secsta.ads		20250808065140 578279f5 system.secondary_stack%s
+D s-soflin.ads		20250808065140 5d88fdea system.soft_links%s
+D s-stache.ads		20250808065140 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20250808065140 1c9580f6 system.standard_library%s
+D s-stoele.ads		20250808065140 ccded4e8 system.storage_elements%s
+D s-traent.ads		20250808065140 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20250808065140 fa2a7f59 system.unsigned_types%s
+D s-valspe.ads		20250808065140 f810d31c system.val_spec%s
+D s-vaispe.ads		20250808065140 8280550e system.value_i_spec%s
+D s-vauspe.ads		20250808065140 89269ba5 system.value_u_spec%s
+D s-vs_int.ads		20250808065140 06b6b724 system.vs_int%s
+D s-vs_uns.ads		20250808065140 e7f47a27 system.vs_uns%s
+D s-wchcon.ads		20250808065140 d9032363 system.wch_con%s
+D zadanie1.adb		20251015184800 5d660074 zadanie1%b
+G a e
+G c Z b b [zadanie1 standard 4 11 none]
+X 1 ada.ads
+18K9*Ada 22e8 37|1r6 1r23 2r6 2r31
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 37|2w10 2r35
+X 10 a-textio.ads
+58K13*Text_IO 785e16 37|1w10 1r27
+515U14*Put 37|32s9 35s9
+565U14*Put_Line 37|40s9
+X 11 a-tiinio.ads
+62U14*Get 37|33s9[3|18] 36s9[3|18]
+X 37 zadanie1.adb
+4U11*Zadanie1 4b11 41l5 41t13
+6i9 A{integer} 33m13 38r25
+6i12 B{integer} 36m13 38r28
+6i15 Res{integer} 38m9 40r43
+8V18 Euklides{integer} 8b18 8>28 8>31 28l13 28t21 38s16
+8i28 A1{integer} 9r32
+8i31 B1{integer} 10r32
+9i17 A{integer} 15r20 18r32 23r30 24m25 27r24
+10i17 B{integer} 16r32 17r23 21r23 22r35 23m25 23r36
+11i17 Modulo{integer} 22m25 24r30
+
