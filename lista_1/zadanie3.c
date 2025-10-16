@@ -15,7 +15,13 @@ int is_palindrome(int x, int n)
 
 int main()
 {
-	printf("%d", is_palindrome(3, 2));
+	int num;
+	int sys;
+	printf("Enter number: ");
+	scanf("%d", &num);
+	printf("Enter system: ");
+	scanf("%d", &sys);
+	printf("%d", is_palindrome(num, sys));
 
 	return 0;
 }

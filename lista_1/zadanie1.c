@@ -25,7 +25,13 @@ int euklides(int a, int b)
 
 int main()
 {
-	printf("%d", euklides(24, 12));
+	int a;
+	int b;
+	printf("Enter a: ");
+	scanf("%d", &a);
+	printf("Enter b: ");
+	scanf("%d", &b);
+	printf("%d", euklides(a, b));
 
 	return 0;
 }
