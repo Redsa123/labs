@@ -4,8 +4,6 @@ def main():
 			return b
 		elif(b == 0):
 			return a
-		
-		modulo = 0;
 
 		while b != 0:
 			

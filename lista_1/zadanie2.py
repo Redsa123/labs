@@ -2,7 +2,7 @@ import math
 
 def main():
 	def solve(a, b, c):
-		delta = b - 4 * a * c
+		delta = b*b - 4 * a * c
 		if delta < 0:
 			print("Rozwiazania rownania nie naleza do zbioru liczb rzeczywistych\n")
 		elif delta == 0:
