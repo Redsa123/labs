@@ -11,13 +11,13 @@ int euklides(int a, int b)
 		return a;
 	}
 
-	int modulo;
+	int temp;
 
 	while (b != 0)
 	{
-		modulo = b;
+		temp = b;
 		b = a % b;
-		a = modulo;
+		a = temp;
 	}
 
 	return a;
