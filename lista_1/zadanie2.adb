@@ -4,7 +4,7 @@ with Ada.Numerics; use Ada.Numerics;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with Ada.Float_Text_IO; use Ada.Float_Text_IO;
 with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
-
+	
 procedure Zadanie2 is
 	A, B, C: Float;
 
