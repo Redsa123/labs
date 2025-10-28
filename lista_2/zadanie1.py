@@ -12,7 +12,11 @@ def main():
 			a = temp
 		return a
 
-	print(euklides(12, 12))
+	print("Enter value a: ")
+	a = int(input())
+	print("Enter value b: ")
+	b = int(input())
+	print(euklides(a, b))
 
 if __name__ == "__main__":
 	main()

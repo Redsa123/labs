@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
-void dividers(int n)
+void dividers(long long n)
 {
-	int d = sqrt(n);
-	int i = 3;
-	int cur = i;
+	long long d = sqrt(n);
+	long long i = 3;
+	long long cur = i;
 	int mult2 = 0;
 
 	if (n % 2 == 0)
@@ -32,15 +32,15 @@ void dividers(int n)
 		{
 			continue;
 		}
-		printf("%d^%d*", cur, mult);
+		printf("%lld^%d*", cur, mult);
 	}
 }
 
 int main()
 {
-	int n;
+	long long n;
 	printf("Enter number: ");
-	scanf("%d", &n);
+	scanf("%lld", &n);
 	dividers(n);
 
 	return 0;

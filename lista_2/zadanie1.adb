@@ -5,9 +5,10 @@ procedure Zadanie1 is
 
 	A, B, Res: Integer;
 
-	function Euklides (A,B: Integer) return Integer is
+	function Euklides (An,Bn: Integer) return Integer is
 		Temp: Integer;
-
+		A: Integer := An;
+		B: Integer := Bn;
 	begin
 
 		if A = 0 then
@@ -17,7 +18,7 @@ procedure Zadanie1 is
 		end if;
 
 		while B /= 0 loop
-			Modulo := B;
+			Temp := B;
 			B := A mod B;
 			A := Temp;
 		end loop;
