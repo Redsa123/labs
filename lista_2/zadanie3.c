@@ -3,7 +3,6 @@
 
 void dividers(int n)
 {
-	int d = sqrt(n);
 	int i = 3;
 	int cur = i;
 	int mult2 = 0;
