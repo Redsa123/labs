@@ -58,7 +58,7 @@ D s-vauspe.ads		20250808065140 89269ba5 system.value_u_spec%s
 D s-vs_int.ads		20250808065140 06b6b724 system.vs_int%s
 D s-vs_uns.ads		20250808065140 e7f47a27 system.vs_uns%s
 D s-wchcon.ads		20250808065140 d9032363 system.wch_con%s
-D zadanie3.adb		20251028114312 8fdc8416 zadanie3%b
+D zadanie3.adb		20251029090800 8fdc8416 zadanie3%b
 G a e
 G c Z b b [zadanie3 standard 6 11 none]
 X 1 ada.ads
