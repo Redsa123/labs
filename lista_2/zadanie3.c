@@ -25,7 +25,7 @@ void dividers(long long n) {
 				n /=i;
 			}
 			printf("%lld^%d", i, mult);
-			if(n>1)printf("*");
+			if(n>1) printf("*");
 		}
 		i+=2;
 	}

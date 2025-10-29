@@ -20,7 +20,7 @@ def isPrime(n):
 
 
 def main():
-	print("Enter number: ")
+	print("Enter number: ", end="")
 	n = int(input())
 	print(f"{isPrime(n)}")
 
