@@ -1,47 +1,44 @@
 #include <stdio.h>
 #include <math.h>
 
-void dividers(long long n)
-{
-	long long d = sqrt(n);
-	long long i = 3;
-	long long cur = i;
-	int mult2 = 0;
-
-	if (n % 2 == 0)
-	{
-		while (n % 2 == 0)
-		{
+void dividers(long long n) {
+	if (n % 2 == 0) {
+		int mult2 = 0;
+		while (n % 2 == 0) {
 			mult2++;
 			n /= 2;
 		}
-		printf("2^%d*", mult2);
+		printf("2^%d", mult2);
+		if (n > 1) printf("*");
 	}
 
-	while (i <= n)
+	long long root = sqrt(n);
+	long long i = 3;
+	while (i <= root)
 	{
-		int mult = 0;
-		while (n % i == 0)
+		if (n%i==0)
 		{
-			cur = i;
-			mult++;
-			n /= i;
+			int mult = 0;
+			while (n%i==0)
+			{
+				mult++;
+				n /=i;
+			}
+			printf("%lld^%d", i, mult);
+			if(n>1)printf("*");
 		}
-		i += 2;
-		if (mult == 0)
-		{
-			continue;
-		}
-		printf("%lld^%d*", cur, mult);
+		i+=2;
+	}
+
+	if (n > 1) {
+		printf("%lld^1", n);
 	}
 }
 
-int main()
-{
+int main() {
 	long long n;
 	printf("Enter number: ");
 	scanf("%lld", &n);
 	dividers(n);
-
 	return 0;
 }
