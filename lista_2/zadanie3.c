@@ -40,5 +40,6 @@ int main() {
 	printf("Enter number: ");
 	scanf("%lld", &n);
 	dividers(n);
+	printf("\n");
 	return 0;
 }
