@@ -26,11 +26,12 @@ void dividers(long long n) {
 			}
 			printf("%lld^%d", i, mult);
 			if(n>1) printf("*");
+			// root = sqrt(n);
 		}
 		i+=2;
 	}
 
-	if (n > 1) {
+	if (n >= 1) {
 		printf("%lld^1", n);
 	}
 }
