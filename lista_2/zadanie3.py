@@ -19,7 +19,7 @@ def main():
 				mult = 0
 				while n%i==0:
 					mult += 1
-					n /= i
+					n = n // i
 				print(f"{i}^{mult}", end="")
 				if n > 1:
 					print("*", end="")
