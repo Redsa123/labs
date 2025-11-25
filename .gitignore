@@ -1,1 +1,19 @@
-.vscode
+.vscode/
+.idea/
+.clang-tidy
+.venv/
+venv
+
+# Ada executable files
+
+*.ali
+*.o
+main
+
+# Python
+
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
