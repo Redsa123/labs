@@ -132,7 +132,7 @@ long long prime_count_pi(long long x) {
 }
 
 int main() {
-    std::cout << find_kth_prime(33) << std::endl;
+    std::cout << find_kth_prime(100) << std::endl;
 
     return 0;
 }
