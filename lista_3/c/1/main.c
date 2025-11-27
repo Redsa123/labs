@@ -8,16 +8,26 @@
 #include "primenumbers.h"
 
 int main(int argc, char* argv[]){
-    unsigned long n, count;
+    long long n, count;
     bool *s;
 
     if (argc!=2) {
         printf("Wrong number of arguments\n");
-        return -1;
+        return 1;
     }
 
+    sscanf(argv[1], "%lld", &n);
 
-    sscanf(argv[1], "%lu", &n);
+    if (n < 0) {
+        printf("Arguments have to be greater than 0");
+        return 1;
+    }
+
+    if (n < 2) {
+        printf("No prime numbers less than 2\n");
+        return 1;
+    }
+
     s = malloc((n+1)*sizeof(bool));
 
     compute_sieve(s, n);
@@ -25,7 +35,7 @@ int main(int argc, char* argv[]){
 
     free(s);
 
-    printf("%lu\n", count);
+    printf("%lld\n", count);
 
     return 0;
 }
