@@ -34,8 +34,8 @@ def main():
 
     n = int(sys.argv[1])
 
-    if n < 0:
-        print("N must be positive number")
+    if n <=1:
+        print("N has to be greater than 1")
         return -1
 
     s = compute_sieve(n)
