@@ -16,10 +16,10 @@ procedure Main is
             return;
         end if;
 
-		  	if Integer'Value(Argument(1)) < 2 then
-				Put_Line("Wrong input, n has to be greater then 1");
-				return;
-			end if;
+		if Integer'Value(Argument(1)) < 2 then
+			Put_Line("Wrong input, n has to be greater then 1");
+			return;
+		end if;
 
         n := Natural'Value(Argument(1));
         s := new Sieve (2 .. n);

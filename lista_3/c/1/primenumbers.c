@@ -15,7 +15,7 @@ void compute_sieve (bool s[], unsigned n){
 	for (unsigned i = 3; i <= root; i+=2) {
 		if (s[i]) {
 
-			/*Because i is odd, i*i is odd, so i*i+i is even, so j+=2*i to iterate only over odd numbers*/
+			/*Because i is odd, i*i is odd, so i*i+i is even, so j+=2*i to iterate only odd numbers*/
 			for (unsigned j = i*i; j <= n; j+=2*i) {
 				s[j] = false;
 			}
