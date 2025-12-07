@@ -2,6 +2,10 @@
 // Created by redsa on 26.11.25.
 //
 
+/*
+Takes N as argument and returns Nth prime number;
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
