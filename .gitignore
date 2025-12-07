@@ -4,10 +4,11 @@
 .venv/
 venv
 
-# Ada executable files
+# executable files
 
 *.ali
 *.o
+*.exe
 main
 
 # Python
@@ -16,4 +17,3 @@ main
 *.pyo
 *.pyd
 __pycache__/
-
