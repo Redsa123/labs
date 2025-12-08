@@ -2,22 +2,26 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Function declarations for prime_numbers();
 void compute_sieve(bool s[], unsigned n);
 unsigned long count_primes(bool s[], unsigned n);
 
 // (pn) returns number of prime number less or equal to n
-unsigned prime_numbers(unsigned n) {
+unsigned prime_numbers(unsigned n)
+{
     long long count;
-    bool* s;
+    bool *s;
 
-    if (n < 0) {
+    if (n < 0)
+    {
         printf("Arguments have to be greater than 0");
         return 1;
     }
 
-    if (n < 2) {
+    if (n < 2)
+    {
         printf("No prime numbers less than 2\n");
         return 1;
     }
@@ -33,16 +37,19 @@ unsigned prime_numbers(unsigned n) {
 }
 
 // (pr) returns Nth prime number
-unsigned prime(unsigned n) {
-    if (n <= 0) {
+unsigned prime(unsigned n)
+{
+    if (n <= 0)
+    {
         printf("Wrong arguments, n has to be greater than 0\n");
         return -1;
     }
-    if (n == 1) {
+    if (n == 1)
+    {
         return 2;
     }
 
-    long long* primes = malloc(n * sizeof(long long));
+    long long *primes = malloc(n * sizeof(long long));
 
     int count = 1;
     primes[0] = 2;
@@ -50,21 +57,26 @@ unsigned prime(unsigned n) {
     int i = 3;
     int flag = 1;
 
-    while (1) {
+    while (1)
+    {
         flag = 1;
 
-        for (int j = 0; j < count; j++) {
-            if (i%primes[j] == 0) {
+        for (int j = 0; j < count; j++)
+        {
+            if (i % primes[j] == 0)
+            {
                 flag = 0;
             }
         }
 
-        if (flag) {
+        if (flag)
+        {
             primes[count] = i;
             count++;
         }
 
-        if (count == n) {
+        if (count == n)
+        {
             free(primes);
             return i;
         }
@@ -73,20 +85,21 @@ unsigned prime(unsigned n) {
 }
 
 // (ip) checks if the number is prime
-bool is_prime(unsigned n) {
+bool is_prime(unsigned n)
+{
     int root = sqrt(n);
 
-    if(n <= 1)
+    if (n <= 1)
     {
         return false;
     }
 
-    if (n==2)
+    if (n == 2)
     {
         return true;
     }
 
-    if (n%2 == 0)
+    if (n % 2 == 0)
     {
         return false;
     }
@@ -95,7 +108,7 @@ bool is_prime(unsigned n) {
 
     while (i <= root)
     {
-        if (n%i == 0)
+        if (n % i == 0)
         {
             return false;
         }
@@ -105,34 +118,87 @@ bool is_prime(unsigned n) {
     return true;
 }
 
+//(calculator) for endless mode
+int calculator()
+{
+    printf("\n--Endless mode--");
 
-void compute_sieve(bool s[], unsigned n) {
-	unsigned root = sqrt(n);
+    while (true)
+    {
+        char func_name[50];
+        unsigned number;
 
-	s[2] = true;
+        printf("\nEnter function name: ");
+        scanf("%49s", func_name);
 
-	for (unsigned i = 3; i <= n; i += 2) s[i] = true;
+        if (!strcmp(func_name, "exit"))
+        {
+            printf("--Exit endless mode--");
+            return 0;
+        }
 
-	for (unsigned i = 3; i <= root; i += 2) {
-		if (s[i]) {
+        printf("Enter the number: ");
+        scanf("%u", &number);
 
-			/*Because i is odd, i*i is odd, so i*i+i is even, so j+=2*i to iterate only odd numbers*/
-			for (unsigned j = i * i; j <= n; j += 2 * i) {
-				s[j] = false;
-			}
-		}
-	}
+        if (!strcmp(func_name, "pn"))
+        {
+            printf("Number of prime numbers less or equal to %u: %u", number, prime_numbers(number));
+        }
+        else if (!strcmp(func_name, "pr"))
+        {
+            printf("%u-th prime number: %u", number, prime(number));
+        }
+        else if (!strcmp(func_name, "ip"))
+        {
+            char *result = is_prime(number) ? "True" : "False";
+            printf("Is %u a prime number:\n%s", number, result);
+        }
+        else if (!strcmp(func_name, "calculator"))
+        {
+        }
+        else
+        {
+            printf("\n\"%s\" is unknown function.\nAvailable functions:\n\"pn\" for number of prime numbers less or equal to provided number;\n\"pr\" for n-th prime number\n\"ip\" for checking if provided number is prime;\n\"calculator (and NO number)\" for endless mode.\n\n", func_name);
+        }
+    }
 }
 
-unsigned long count_primes(bool s[], unsigned n) {
-    unsigned long count;
+void compute_sieve(bool s[], unsigned n)
+{
+    unsigned root = sqrt(n);
 
-    if (n >= 2) {
+    s[2] = true;
+
+    for (unsigned i = 3; i <= n; i += 2)
+        s[i] = true;
+
+    for (unsigned i = 3; i <= root; i += 2)
+    {
+        if (s[i])
+        {
+
+            /*Because i is odd, i*i is odd, so i*i+i is even, so j+=2*i to iterate only odd numbers*/
+            for (unsigned j = i * i; j <= n; j += 2 * i)
+            {
+                s[j] = false;
+            }
+        }
+    }
+}
+
+unsigned long count_primes(bool s[], unsigned n)
+{
+    unsigned long count = 0;
+
+    if (n >= 2)
+    {
         count = 1;
     }
 
-    for (unsigned i = 3; i <= n; i += 2) {
-        if (s[i]) count++;
+    for (unsigned i = 3; i <= n; i += 2)
+    {
+        if (s[i])
+            count++;
     }
 
     return count;
