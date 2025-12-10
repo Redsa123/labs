@@ -1,4 +1,4 @@
-#include "primes_lib.h"
+#include "../primes_lib.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -125,11 +125,11 @@ int calculator()
 
     while (true)
     {
-        char func_name[50];
+        char func_name[5];
         unsigned number;
 
         printf("\nEnter function name: ");
-        scanf("%49s", func_name);
+        scanf("%4s", func_name);
 
         if (!strcmp(func_name, "exit"))
         {
@@ -163,6 +163,7 @@ int calculator()
     }
 }
 
+// helper functions
 void compute_sieve(bool s[], unsigned n)
 {
     unsigned root = sqrt(n);
