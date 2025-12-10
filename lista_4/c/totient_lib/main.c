@@ -8,6 +8,9 @@
 #include "totient.h"
 
 int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        printf("\nWrong number of arguments.\nUsage: /program <number>");
+    }
     printf("\n");
     for (int i = 1; i < argc; i++) {
         printf("totient(%s) = %d;\n",argv[i], totient(atoi(argv[i])));
