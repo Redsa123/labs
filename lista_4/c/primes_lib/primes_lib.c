@@ -1,8 +1,9 @@
-#include "../primes_lib.h"
+#include "primes_lib.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Function declarations for prime_numbers();
 void compute_sieve(bool s[], unsigned n);

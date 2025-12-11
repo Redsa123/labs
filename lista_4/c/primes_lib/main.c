@@ -3,10 +3,14 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "../primes_lib.h"
+#include "primes_lib.h"
 
 int main(int argc, char *argv[])
 {
+    if (argc < 2)
+    {
+        printf("Wrong number of arguments.\nUsage: ./program <function> <number>");
+    }
     if (argc != 3 && strcmp(argv[1], "calculator") != 0)
     {
         printf("Wrong number of arguments.\nUsage: ./program <function> <number>");
