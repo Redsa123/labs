@@ -11,13 +11,13 @@ unsigned totient(unsigned n) {
 	int index = 0;
 	dividers(n, dividers_list, &index);
 
-	unsigned result = n;
+	unsigned res = n;
 	for (int i = 0; i < index; i++) {
-		result = result - result/dividers_list[i];
+		res = res - res/dividers_list[i];
 	}
 
 	free(dividers_list);
-    return result;
+    return res;
 }
 
 void dividers(unsigned n, int *dividers_list, int *index) {

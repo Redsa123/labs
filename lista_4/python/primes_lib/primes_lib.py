@@ -1,4 +1,3 @@
-
 import math
 
 # (pn) returns number of prime number less or equal to n
