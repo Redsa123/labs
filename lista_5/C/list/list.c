@@ -85,6 +85,14 @@ void put(list list_, int index, int new_elem)
 }
 void insert(list list_, int index, int new_elem)
 {
+    if (index == length(list_) + 1)
+    {
+        node_ptr new_node = malloc(sizeof(node));
+        list_->last->next = new_node;
+        new_node->elem = new_elem;
+        new_node->next = NULL;
+        return;
+    }
     node_ptr cur = get(list_, index);
     node_ptr new_node = malloc(sizeof(node));
     new_node->next = cur;
