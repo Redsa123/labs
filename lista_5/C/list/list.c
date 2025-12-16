@@ -65,11 +65,6 @@ void append(list list_, int new_elem)
 
 node_ptr get(list list_, int index)
 {
-    if (index > list_->length)
-    {
-        printf("Wrong index.\n");
-        return list_->first;
-    }
     node_ptr temp_node = list_->first;
     int temp = 1;
 
@@ -93,9 +88,7 @@ void insert(list list_, int index, int new_elem)
     new_node->elem = new_elem;
     if (index == list_->length + 1)
     {
-        list_->last->next = new_node;
-        new_node->next = NULL;
-        updateLength(list_);
+        append(list_, new_elem);
         return;
     }
 
@@ -168,7 +161,6 @@ void clean(list list_)
     {
         pop(list_);
     }
-    free(list_);
 }
 
 void updateLength(list list_)

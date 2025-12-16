@@ -68,6 +68,7 @@ void normal_control_module()
         case 0:
             if (!isEmpty(list))
                 clean(list);
+                free(list);
             return;
         case 11:
             printf("This command is unavailable yet.\n");
@@ -100,6 +101,10 @@ void normal_control_module()
             int get_index;
             printf("Index: ");
             scanf("%d", &get_index);
+            if (get_index > list->length)
+            {
+                printf("Wrong index.\n");
+            }
             printf("Result: %d\n", get(list, get_index)->elem);
             break;
         case 7:
