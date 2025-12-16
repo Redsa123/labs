@@ -4,11 +4,6 @@
 
 #include "list.h"
 
-void updateLength(list list_) {
-    list_->length = length(list_);
-    printf("updated length: %d\n", list_->length);
-}
-
 bool isEmpty(list list_)
 {
     return list_->first == NULL;
@@ -28,12 +23,13 @@ int pop(list list_)
         }
 
         free(first_node);
-
+        updateLength(list_);
         return popped;
     }
     else
     {
         printf("List is already empty\n");
+        updateLength(list_);
         return -1;
     }
 }
@@ -48,6 +44,7 @@ void push(list list_, int new_elem)
     {
         list_->last = new_node;
     }
+    updateLength(list_);
 }
 void append(list list_, int new_elem)
 {
@@ -63,11 +60,12 @@ void append(list list_, int new_elem)
         list_->last->next = new_node;
     }
     list_->last = new_node;
+    updateLength(list_);
 }
 
 node_ptr get(list list_, int index)
 {
-    if (index > length(list_))
+    if (index > list_->length)
     {
         printf("Wrong index.\n");
         return list_->first;
@@ -90,22 +88,23 @@ void put(list list_, int index, int new_elem)
 }
 void insert(list list_, int index, int new_elem)
 {
-    if (index == length(list_) + 1)
-    {
-        node_ptr new_node = malloc(sizeof(node));
-        list_->last->next = new_node;
-        new_node->elem = new_elem;
-        new_node->next = NULL;
-        return;
-    }
     node_ptr cur = get(list_, index);
     node_ptr new_node = malloc(sizeof(node));
-    new_node->next = cur;
     new_node->elem = new_elem;
+    if (index == list_->length + 1)
+    {
+        list_->last->next = new_node;
+        new_node->next = NULL;
+        updateLength(list_);
+        return;
+    }
+
+    new_node->next = cur;
 
     if (list_->first == cur)
     {
         list_->first = new_node;
+        updateLength(list_);
         return;
     }
 
@@ -115,6 +114,7 @@ void insert(list list_, int index, int new_elem)
         cur_ptr = cur_ptr->next;
     }
     cur_ptr->next = new_node;
+    updateLength(list_);
 }
 void delete(list list_, int index)
 {
@@ -123,6 +123,7 @@ void delete(list list_, int index)
     {
         list_->first = cur->next;
         free(cur);
+        updateLength(list_);
         return;
     }
 
@@ -132,8 +133,8 @@ void delete(list list_, int index)
         cur_ptr = cur_ptr->next;
     }
     cur_ptr->next = cur->next;
-
     free(cur);
+    updateLength(list_);
 }
 
 void print(list list_)
@@ -145,7 +146,7 @@ void print(list list_)
         printf(" %d", temp->elem);
         temp = temp->next;
     }
-    printf(" ]\t(%d)\n", length(list_));
+    printf(" ]\t(%d)\n", list_->length);
 }
 
 int length(list list_)
@@ -168,4 +169,9 @@ void clean(list list_)
         pop(list_);
     }
     free(list_);
+}
+
+void updateLength(list list_)
+{
+    list_->length = length(list_);
 }
