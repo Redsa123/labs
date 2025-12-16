@@ -12,6 +12,7 @@ typedef struct list_t
 {
     node_ptr first;
     node_ptr last;
+    int length;
 } list_t;
 
 typedef list_t *list;
@@ -52,3 +53,5 @@ void delete (list list, int index);
 void print(list list);
 int length(list list);
 void clean(list list);
+
+void updateLength(list list);
