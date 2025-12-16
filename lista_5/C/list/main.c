@@ -77,6 +77,7 @@ void normal_control_module()
             break;
         case 2:
             printf("Result: %d\n", pop(list));
+            updateLength(list);
             break;
         case 3:
             int push_elem;
@@ -84,9 +85,10 @@ void normal_control_module()
             scanf("%d", &push_elem);
             push(list, push_elem);
             printf("Result: OK\n");
+            updateLength(list);
             break;
         case 4:
-            printf("Reulst: ");
+            printf("Result: ");
             print(list);
             break;
         case 5:
@@ -95,6 +97,7 @@ void normal_control_module()
             scanf("%d", &append_elem);
             append(list, append_elem);
             printf("Result: OK\n");
+            updateLength(list);
             break;
         case 6:
             int get_index;
@@ -121,6 +124,7 @@ void normal_control_module()
             scanf("%d", &insert_value);
             insert(list, insert_index, insert_value);
             printf("Result: OK\n");
+            updateLength(list);
             break;
         case 9:
             int delete_index;
@@ -128,10 +132,12 @@ void normal_control_module()
             scanf("%d", &delete_index);
             delete(list, delete_index);
             printf("Result: OK\n");
+            updateLength(list);
             break;
         case 10:
             clean(list);
             printf("Result: OK\n");
+            updateLength(list);
             break;
         }
     }
