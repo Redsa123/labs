@@ -4,6 +4,11 @@
 
 #include "list.h"
 
+void updateLength(list list_) {
+    list_->length = length(list_);
+    printf("updated length: %d\n", list_->length);
+}
+
 bool isEmpty(list list_)
 {
     return list_->first == NULL;
