@@ -20,6 +20,7 @@ def find_zero(f, a: float, b: float, eps: float) -> float:
         else:
             a = mid
         mid = (a+b)/2
+        
     return mid
 
 def main():
