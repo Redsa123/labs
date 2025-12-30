@@ -111,6 +111,9 @@ void insert(list list_, int index, int new_elem)
 }
 void delete(list list_, int index)
 {
+    if (index > list_->length) {
+        return;
+    }
     node_ptr cur = get(list_, index);
     if (list_->first == cur)
     {
