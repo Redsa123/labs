@@ -2,41 +2,74 @@
 // Created by serhi on 12/22/2025.
 //
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include "master_mind.h"
 
-void mastermind();
-
-int main() {
-    mastermind();
-
-    return 0;
+void printGuess(int *guess) {
+    printf("[ ");
+    for (int i = 0; i < GUESSNUMBERS; i++) {
+        printf("%d ", guess[i]);
+    }
+    printf("] ");
 }
 
-void mastermind() {
-    int answer[4] = {1, 1, 1, 1};
-    int try = 1;
+int main() {
+    int *allPosibilitiesList = allPosibilities();
+
+    bool *validMask = malloc(TOTALPERMUTATIONS * sizeof(bool));
+    for (int i = 0; i < TOTALPERMUTATIONS; i++) validMask[i] = true;
+
+    int attempts = 1;
+    int rightPlace, wrongPlace;
+
+    printf("Think of a sequence of %d numbers (1-%d).\n", GUESSNUMBERS, GUESSRANGE);
+    printf("I will try to guess it.\n");
+    printf("------------------------------------------------------------------\n");
+
     while (true) {
-        printf("%d:\t", try);
-        for (int i = 0; i < sizeof(answer) / sizeof(answer[0]); i++) {
-            printf("%d ", answer[i]);
+        int guessIndex = -1;
+        for (int i = 0; i < TOTALPERMUTATIONS; i++) {
+            if (validMask[i]) {
+                guessIndex = i;
+                break; // Found a valid guess
+            }
         }
-        printf("?\n");
 
-        int rightPlace;
-        int wrongPlace;
+        if (guessIndex == -1) {
+            printf("Error: No valid possibilities left. You might have entered incorrect feedback previously.\n");
+            break;
+        }
 
-        printf("On the right place: ");
+        int *currentGuess = &allPosibilitiesList[guessIndex * GUESSNUMBERS];
+
+        printf("Attempt %d: I guess ", attempts);
+        printGuess(currentGuess);
+        printf("\n");
+
+        printf("On right place: ");
         scanf("%d", &rightPlace);
-        printf("On the wrong place: ");
+        printf("On wrong place: ");
         scanf("%d", &wrongPlace);
 
-        if (rightPlace == 4) {
-            return;
+
+        if (rightPlace == GUESSNUMBERS) {
+            printf("I guessed it in %d attempts!\n", attempts);
+            break;
         }
 
+        filterList(allPosibilitiesList, validMask, currentGuess, rightPlace, wrongPlace);
 
-        return;
+        int remaining = 0;
+        for (int i = 0; i < TOTALPERMUTATIONS; i++) if (validMask[i]) remaining++;
+        printf("Possible codes remaining: %d\n\n", remaining);
+
+        attempts++;
     }
+
+    free(allPosibilitiesList);
+    free(validMask);
+
+    return 0;
 }
