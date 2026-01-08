@@ -23,6 +23,8 @@ int *allPosibilities();
 
 void calculateMatches(const int *secret, const int *guess, int *resultOut);
 
-void filterList(int *allPermutations, bool *validMask, int *currentGuess, int userRightPlace, int userWrongPlace);
+void filterList(int *allPosibilitiesList, bool *validMask, int *currentGuess, int userRightPlace, int userWrongPlace);
+
+void printGuess(int *guess);
 
 #endif //LABS_MASTER_MIND_H

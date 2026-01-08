@@ -2,18 +2,16 @@
 // Created by serhi on 12/23/2025.
 //
 
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h> // Required for abs()
 
-void nextPermutation(int *nums, int n);
+void nextPermutation(int *currentPerm, int n);
 
 void swap(int *a, int *b);
 
-void reverse(int *nums, int start, int end);
+void reverse(int *arr, int start, int end);
 
-bool checkNextPerm(int *nums, int n);
+bool checkNextPerm(int *currentPerm, int n);
 
 long long factorial(int n);
 
@@ -52,11 +50,11 @@ int main() {
     return 0;
 }
 
-bool checkNextPerm(int *nums, int n) {
+bool checkNextPerm(int *currentPerm, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             int colDiff = j - i;
-            int rowDiff = abs(nums[i] - nums[j]);
+            int rowDiff = abs(currentPerm[i] - currentPerm[j]);
 
             if (rowDiff == colDiff) {
                 return false;
@@ -80,27 +78,27 @@ void swap(int *a, int *b) {
     *b = temp;
 }
 
-void reverse(int *nums, int start, int end) {
+void reverse(int *arr, int start, int end) {
     while (start < end) {
-        swap(&nums[start], &nums[end]);
+        swap(&arr[start], &arr[end]);
         start++;
         end--;
     }
 }
 
-void nextPermutation(int *nums, int n) {
+void nextPermutation(int *currentPerm, int n) {
     int i = n - 2;
-    while (i >= 0 && nums[i] >= nums[i + 1]) {
+    while (i >= 0 && currentPerm[i] >= currentPerm[i + 1]) {
         i--;
     }
 
     if (i >= 0) {
         int j = n - 1;
-        while (j >= 0 && nums[j] <= nums[i]) {
+        while (j >= 0 && currentPerm[j] <= currentPerm[i]) {
             j--;
         }
-        swap(&nums[i], &nums[j]);
+        swap(&currentPerm[i], &currentPerm[j]);
     }
 
-    reverse(nums, i + 1, n - 1);
+    reverse(currentPerm, i + 1, n - 1);
 }

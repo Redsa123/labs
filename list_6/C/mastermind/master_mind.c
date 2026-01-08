@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "master_mind.h"
 #include <math.h>
+#include <stdio.h>
 
 void generateRecursive(int index, int *currentSequence, int *fullList, int *listCount) {
     if (index == GUESSNUMBERS) {
@@ -32,40 +33,40 @@ int *allPosibilities() {
     return result;
 }
 
-void calculateMatches(const int *secret, const int *guess, int *resultOut) {
+void calculateMatches(const int *candidate, const int *guess, int *tempResult) {
     int rightPlace = 0;
     int wrongPlace = 0;
 
-    int *secretFreq = calloc(GUESSRANGE + 1, sizeof(int));
+    int *candidateFreq = calloc(GUESSRANGE + 1, sizeof(int));
     int *guessFreq = calloc(GUESSRANGE + 1, sizeof(int));
 
     for (int i = 0; i < GUESSNUMBERS; i++) {
-        if (secret[i] == guess[i]) {
+        if (candidate[i] == guess[i]) {
             rightPlace++;
         } else {
-            secretFreq[secret[i]]++;
+            candidateFreq[candidate[i]]++;
             guessFreq[guess[i]]++;
         }
     }
 
     for (int i = 1; i <= GUESSRANGE; i++) {
-        wrongPlace += min(secretFreq[i], guessFreq[i]);
+        wrongPlace += min(candidateFreq[i], guessFreq[i]);
     }
 
-    resultOut[0] = rightPlace;
-    resultOut[1] = wrongPlace;
+    tempResult[0] = rightPlace;
+    tempResult[1] = wrongPlace;
 
-    free(secretFreq);
+    free(candidateFreq);
     free(guessFreq);
 }
 
-void filterList(int *allPermutations, bool *validMask, int *currentGuess, int userRightPlace, int userWrongPlace) {
+void filterList(int *allPosibilitiesList, bool *validMask, int *currentGuess, int userRightPlace, int userWrongPlace) {
     int tempResult[2];
 
     for(int i = 0; i < TOTALPERMUTATIONS; i++) {
         if(!validMask[i]) continue;
 
-        int *candidate = &allPermutations[i * GUESSNUMBERS];
+        int *candidate = &allPosibilitiesList[i * GUESSNUMBERS];
 
         calculateMatches(candidate, currentGuess, tempResult);
 
@@ -73,4 +74,12 @@ void filterList(int *allPermutations, bool *validMask, int *currentGuess, int us
             validMask[i] = false;
         }
     }
+}
+
+void printGuess(int *guess) {
+    printf("[ ");
+    for (int i = 0; i < GUESSNUMBERS; i++) {
+        printf("%d ", guess[i]);
+    }
+    printf("] ");
 }

@@ -7,14 +7,6 @@
 #include <math.h>
 #include "master_mind.h"
 
-void printGuess(int *guess) {
-    printf("[ ");
-    for (int i = 0; i < GUESSNUMBERS; i++) {
-        printf("%d ", guess[i]);
-    }
-    printf("] ");
-}
-
 int main() {
     int *allPosibilitiesList = allPosibilities();
 
@@ -25,7 +17,6 @@ int main() {
     int rightPlace, wrongPlace;
 
     printf("Think of a sequence of %d numbers (1-%d).\n", GUESSNUMBERS, GUESSRANGE);
-    printf("I will try to guess it.\n");
     printf("------------------------------------------------------------------\n");
 
     while (true) {
@@ -38,13 +29,13 @@ int main() {
         }
 
         if (guessIndex == -1) {
-            printf("Error: No valid possibilities left. You might have entered incorrect feedback previously.\n");
+            printf("You are lying!\n");
             break;
         }
 
         int *currentGuess = &allPosibilitiesList[guessIndex * GUESSNUMBERS];
 
-        printf("Attempt %d: I guess ", attempts);
+        printf("Attempt %d: ", attempts);
         printGuess(currentGuess);
         printf("\n");
 
