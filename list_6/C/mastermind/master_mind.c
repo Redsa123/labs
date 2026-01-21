@@ -5,6 +5,7 @@
 #include "master_mind.h"
 #include <math.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 void generateRecursive(int index, int *currentSequence, int *fullList, int *listCount) {
     if (index == GUESSNUMBERS) {

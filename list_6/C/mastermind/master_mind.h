@@ -2,6 +2,8 @@
 // Created by serhi on 12/31/2025.
 //
 
+#include <stdbool.h>
+
 #ifndef LABS_MASTER_MIND_H
 #define LABS_MASTER_MIND_H
 
@@ -9,15 +11,15 @@
 #define GUESSNUMBERS 4
 #define TOTALPERMUTATIONS ((int)pow(GUESSRANGE, GUESSNUMBERS))
 
-#define max(a,b) \
-({ __typeof__ (a) _a = (a); \
-__typeof__ (b) _b = (b); \
-_a > _b ? _a : _b; })
-
 #define min(a,b) \
 ({__typeof__ (a) _a = (a);\
 __typeof__ (b) _b = (b);\
 _a < _b ? _a : _b; })
+
+#define max(a,b) \
+({ __typeof__ (a) _a = (a); \
+__typeof__ (b) _b = (b); \
+_a > _b ? _a : _b; })
 
 int *allPosibilities();
 
